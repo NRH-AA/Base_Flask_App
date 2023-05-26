@@ -1,0 +1,239 @@
+.profile-dropdown {
+  position: absolute;
+  right: 0px;
+  top: calc(100% + .1rem);
+}
+
+.hidden {
+  display: none;
+}
+
+#navigation-container {
+  width: 100%;
+  height: 50px;
+  background-color: var(--div-background-color);
+  margin: auto;
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+}
+
+#navigation-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 50px;
+  max-width: 1280px;
+  margin: auto;
+}
+
+#navigation-logo {
+  width: 40px;
+  height: 37px;
+  margin-left: -25px;
+  filter: invert(100%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#searchbar-container {
+  width: 280px;
+  border: none;
+  background-color: var(--searchbar-background-color);
+  border-radius: 5px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: width 200ms, margin-right 200ms;
+}
+#searchbar-container:focus-within {
+  width: 320px;
+  margin-right: -40px;
+}
+
+#search-button-submit {
+  height: 90%;
+  width: 26px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: -5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.fa-search {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--searchbar-button-color);
+}
+
+#searchbar-input-div {
+  width: auto;
+  height: 33.5px;
+  display: flex;
+}
+
+#searchbar-input {
+  width: 220px;
+  height: 90%;
+  font-weight: 550;
+  font-size: 13px;
+  margin-top: 2px;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--searchbar-text-color);
+  transition: background-color 300ms;
+}
+#searchbar-input:focus-within {
+  width: 320px;
+}
+
+#searchbar-input::placeholder {
+  color: var(--searchbar-placeholder-color);
+}
+
+#navigation-button-bar-div {
+  display: flex;
+  align-items: center;
+  margin-left: -10px;
+  gap: 40px;
+}
+
+.navigation-button-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+.navigation-button-div:hover {
+  color: var(--icon-color-hover);
+}
+
+.navigation-button-div > span {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.navigation-button {
+  border: none;
+  background: none;
+}
+
+.fa-house, .fa-bell, .fa-briefcase, .fa-users, .fa-comment-dots {
+  font-size: 20px;
+  color: var(--icon-color);
+  cursor: pointer;
+}
+
+.fa-house:hover, .fa-bell:hover, .fa-briefcase:hover, .fa-users:hover, .fa-comment-dots:hover {
+  color: var(--icon-color-hover);
+}
+
+#profile-dropwdown-button-div {
+  position: relative;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -10px;
+  cursor: pointer;
+  border-right: 1px solid rgb(148, 148, 148);
+}
+
+#profile-dropwdown-button-div > span {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+#profile-dropwdown-button-div > span > i {
+  font-size: 12.5px;
+}
+
+#profile-dropdown-button-img {
+  width: 25px;
+  height: 25px;
+}
+
+#profile-dropdown-container {
+  width: 240px;
+  height: auto;
+  background-color: var(--div-background-color);
+  box-shadow: 0px 0px 1px 1px var(--div-box-shadow-color);
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  margin-right: 20px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+#profile-dropdown-img {
+  height: 60px;
+  width: 60px;
+}
+
+#profile-dropdown-top-div {
+  display: flex;
+  gap: 10px;
+}
+
+
+#profile-dropdown-button-div {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  gap: 3px;
+}
+
+.profile-dropdown-p {
+  cursor: default;
+  margin-top: 5px;
+}
+.profile-dropdown-p2 {
+  margin-top: -10px;
+  padding-bottom: 10px;
+}
+
+.user-dropdown-button {
+  width: 160px;
+  margin: auto;
+  border-radius: 10px;
+  margin-bottom: 2px;
+}
+
+.profile-dropdown-view-profile-button {
+  width: 95%;
+  margin: auto;
+}
+
+.user-dropdown-button:hover {
+  background-color: white;
+}
+
+.user-dropdown-button:active {
+  background-color: rgb(221, 221, 221);
+}
+
+.create-job-listing-button {
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 15px;
+    border: 1px solid rgb(160, 160, 160);
+    background: linear-gradient(#fffefe, #7c7c7c);
+    box-shadow: 0px 1px 4px 2px rgb(78, 78, 78);
+    color: blue;
+    cursor: pointer;
+}
+
+.create-job-listing-button:hover {
+    background: linear-gradient(#ffffff, #868686);
+    box-shadow: 0px 1px 4px 2px rgb(26, 26, 26);
+}
+
+.create-job-listing-button:active {
+    background: linear-gradient(#d6d6d6, #5f5f5f);
+    box-shadow: -1px -2px 6px 4px rgb(247, 247, 247);
+}

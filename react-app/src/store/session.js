@@ -1,10 +1,15 @@
 // constants
 const SET_USER = "session/SET_USER";
+const REMOVE_USER = 'session/REMOVE_USER';
 const CHANGE_THEME = "session/CHANGE_THEME";
 
 const setUser = (user) => ({
 	type: SET_USER,
-	payload: user,
+	user,
+});
+
+const removeUser = () => ({
+	type: REMOVE_USER
 });
 
 export const changeTheme = (theme) => ({
@@ -124,10 +129,10 @@ export const updateProfilePicture = (userId, url) => async (dispatch) => {
 
 	const data = await response.json();
 	
-	if (response.ok) {
-		dispatch(setUser(data));
-		dispatch(setSingleUserAction(data));
-	}
+	// if (response.ok) {
+	// 	dispatch(setUser(data));
+	// 	dispatch(setSingleUserAction(data));
+	// }
 	
 	return data
 };
@@ -138,7 +143,7 @@ export const deleteUserProfileThunk = (userId) => async (dispatch) => {
 	});
 	
 	const data = await res.json();
-	dispatch(setSingleUserAction(data));
+	// dispatch(setSingleUserAction(data));
 	return data;
 }
 
@@ -150,7 +155,7 @@ export default function reducer(state = initialState, action) {
 	let newState = {...state}
 	switch (action.type) {
 		case SET_USER:
-			newState.user = action.payload;
+			newState.user = action.user;
 			return newState;
 		case REMOVE_USER:
 			newState.user = null;

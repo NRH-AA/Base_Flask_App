@@ -6,69 +6,37 @@ from app.utils import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
 user_routes = Blueprint('users', __name__)
-
-
-@user_routes.route('')
-@login_required
-def all_users():
-    users = User.query.order_by(desc('updatedAt')).limit(10)
-    return {'users': [user.to_dict_all() for user in users]}
-
-@user_routes.route('/')
-@login_required
-def all_users2():
-    users = User.query.order_by(desc('updatedAt')).limit(10)
-    return {'users': [user.to_dict_all() for user in users]}
-
-@user_routes.route('', methods=['POST'])
-@login_required
-def get_searched_users():
-    data = request.get_json()
-    sText = data['searchText']
-    offset = data['offset'] or 0
     
-    results = None
-    if not sText or sText == '':
-        results = User.query.order_by('updatedAt').limit(6).offset(offset)
-    else:
-        results = User.query.where(
-            User.first_name.ilike(sText + '%%') |
-            User.last_name.ilike(sText + '%%')
-        ).order_by(desc(User.first_name)).limit(6).offset(offset)
-    
-    if not results is None:
-        return {'posts': [user.posts.to_dict() for user in results]}
-    
-    return {'posts': []}
-    
+'''
+    User_Dictionary = {
+        'id': self.id,
+        'username': self.username,
+        'password': self.password,
+        'active': self.active,        # Determine if users profile should be hidden.
+        'theme': self.theme,          # User can store which theme they use
+        'createdAt': self.createdAt,
+        'updatedAt': self.updatedAt
+    }
+'''
 
 @user_routes.route('/<int:id>', methods=['GET'])
 @login_required
 def user(id):
+    """
+    Route to get user by id. GET /api/users/userId
+    Route returns user dictionary data.
+    """
     user = User.query.get(id)
-    return user.to_dict_all()
-
-@user_routes.route('/<int:id>', methods=['POST'])
-@login_required
-def update_user(id):
-    data = request.get_json()
-    occupation = data['occupation'] or ''
-    company_name = data['company_name'] or ''
-    bio = data['bio'] or ''
-    
-    user = User.query.get(id)
-    user.occupation = occupation
-    user.company_name = company_name
-    user.bio = bio
-    
-    db.session.commit()
-    ret = User.query.get(id)
-    
-    return ret.to_dict_all()
+    return user.to_dict()
 
 @user_routes.route('/<int:id>/theme', methods=['POST'])
 @login_required
 def update_user_theme(id):
+    """
+    Route to update user theme in database. POST /api/users/userId/theme
+    Expects object: {theme: 'string'}
+    Route returns new user dictionary data.
+    """
     data = request.get_json()
     theme = data['theme']
     
@@ -78,11 +46,16 @@ def update_user_theme(id):
     db.session.commit()
     ret = User.query.get(id)
     
-    return ret.to_dict_all()
+    return ret.to_dict()
 
 @user_routes.route('/<int:id>/picture', methods=['POST'])
 @login_required
 def update_user_picture(id):
+    """
+    Route to upload user profile picture. POST /api/users/userId/picture
+    Expects: {profile_picture: 'url'}
+    Route returns new user dictionary data.
+    """
     profile_picture = request.get_json()['profile_picture']
     
     if not profile_picture:
@@ -92,12 +65,16 @@ def update_user_picture(id):
     user.profile_picture = profile_picture
     db.session.commit()
     ret = User.query.get(id)
-    return ret.to_dict_all()
-    
+    return ret.to_dict()
 
 @user_routes.route('/upload', methods=['POST'])
 @login_required
 def upload_image():
+    """
+    Route to upload an image to the S3 Bucket. POST /api/users/upload
+    User route is used for login required to upload a file.
+    Returns a dictionary: {url: 'S3BucketUrl'}
+    """
     if "image" in request.files:
         image = request.files["image"]
 
@@ -117,6 +94,12 @@ def upload_image():
 @user_routes.route('/<int:id>/profile', methods=['DELETE'])
 @login_required
 def delete_profile(id):
+    '''
+    Route to delete a users profile. It will set user.active to false or true. 
+    It will not delete the user. 
+    You may use user.active to hide the profile and keep their data in the data base.
+    Route returns new user dictionary data.
+    '''
     user = User.query.get(id)
     
     if not user:
@@ -125,4 +108,4 @@ def delete_profile(id):
     user.active = not user.active
     db.session.commit()
     ret = User.query.get(id)
-    return ret.to_dict_all()
+    return ret.to_dict()

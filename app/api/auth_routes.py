@@ -28,6 +28,10 @@ def authenticate():
 
 @auth_routes.route('/login', methods=['POST'])
 def login():
+    """
+    Logs a user in using their email and password.
+    Returns the user dictionary.
+    """
     email = request.get_json()['email']
     password = request.get_json()['password']
     
@@ -40,13 +44,14 @@ def login():
         return {'password': ['Invalid password provided']}, 401
         
     login_user(user)
-    return user.to_dict_all()
+    return user.to_dict()
 
 
 @auth_routes.route('/logout')
 def logout():
     """
     Logs a user out
+    Returns a dictionary {'message': 'User logged out'}
     """
     logout_user()
     return {'message': 'User logged out'}
@@ -54,6 +59,10 @@ def logout():
 
 @auth_routes.route('/signup', methods=['POST'])
 def sign_up():
+    """
+    Signs a user up. 
+    Expecting a dictionary with {email, username, password, confirmPassword}
+    """
     data = request.get_json()
     email = data['email']
     username = data['username']

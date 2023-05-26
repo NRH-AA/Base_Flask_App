@@ -24,6 +24,7 @@ def load_user(id):
 # Tell flask about our seed commands
 app.cli.add_command(seed_commands)
 
+# Update app config with env's.
 app.config.update(
     SECRET_KEY = os.environ.get('SECRET_KEY'),
     SQLALCHEMY_TRACK_MODIFICATIONS = False,
@@ -36,7 +37,7 @@ app.config.update(
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 
-
+# Connect db to app
 db.init_app(app)
 Migrate(app, db)
 
@@ -44,11 +45,7 @@ Migrate(app, db)
 CORS(app)
 
 
-# Since we are deploying with Docker and Flask,
-# we won't be using a buildpack when we deploy to Heroku.
-# Therefore, we need to make sure that in production any
-# request made over http is redirected to https.
-# Well.........
+# Modify request from http to https
 @app.before_request
 def https_redirect():
     if os.environ.get('FLASK_ENV') == 'production':
@@ -58,6 +55,7 @@ def https_redirect():
             return redirect(url, code=code)
 
 
+# Inject our csrf token to our response.
 @app.after_request
 def inject_csrf_token(response):
     response.set_cookie(

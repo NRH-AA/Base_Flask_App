@@ -1,23 +1,10 @@
-from app.models import db, User, UserImage, environment, SCHEMA
+from app.models import db, User, environment, SCHEMA
 from sqlalchemy.sql import text
 from faker import Faker
 from random import randint
 fake = Faker()
 
 default_profile_picture = 'https://www.computerhope.com/jargon/g/guest-user.png'
-jobs = [
-    'Web Development',
-    'Cashier',
-    'Sales Manager',
-    'English Teacher',
-    'Edgy',
-    'Pharmacist',
-    'Data Analytics',
-    'Political Scientist?',
-    'C.E.O.',
-    'Hardware Engineer',
-    'Software Engineer'
-]
 
 profile_pictures = [
     'https://pbs.twimg.com/profile_images/1326707048478892033/Ln0v50LP_400x400.jpg',
@@ -42,44 +29,13 @@ profile_pictures = [
     'https://wallpapercave.com/wp/wp5554098.jpg'
 ]
 
-userInfo = [
-    {'first_name': 'Rick', 'last_name': 'Roll'},
-    {'first_name': 'Bob', 'last_name': 'Ross'},
-    {'first_name': 'James', 'last_name': 'Bond'},
-    {'first_name': 'Peter', 'last_name': 'Griffin'},
-    {'first_name': 'Stan', 'last_name': 'Smith'},
-    {'first_name': 'Chicken', 'last_name': 'McCluck'},
-    {'first_name': 'Albert', 'last_name': 'Einstein'},
-    {'first_name': 'Gandolf', 'last_name': 'The Grey'},
-    {'first_name': 'Gollum', 'last_name': 'Smegal'},
-    {'first_name': 'Cloud', 'last_name': 'Shinra'},
-    {'first_name': 'Forest', 'last_name': 'Gump'},
-    {'first_name': 'Robin', 'last_name': 'Williams'},
-    {'first_name': 'Adam', 'last_name': 'Sandler'},
-    {'first_name': 'Some', 'last_name': 'Nerd'},
-    {'first_name': 'Anakin', 'last_name': 'Skywalker'},
-    {'first_name': 'Chew', 'last_name': 'baka'},
-    {'first_name': 'Detective', 'last_name': 'Mittens'},
-    {'first_name': 'Mark', 'last_name': 'Zuckerburg'},
-    {'first_name': 'Mr', 'last_name': 'Bean'},
-    {'first_name': 'Donkey', 'last_name': 'McShrek'}
-]
-
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
         username='Demo', 
         email='demo@aa.io',
         password='password',
-        first_name = 'Demo',
-        last_name = 'User',
-        occupation = 'Demo Occupation',
-        phone_number = '123-456-7890',
-        company_name = 'Demo Company Name',
-        work_email = 'SuperDemo@aa.io',
-        skills = 'Skill1;Skill2;Skill3;Skill4;Skill5;Skill6',
-        profile_picture = default_profile_picture,
-        age = 32
+        profile_picture = default_profile_picture
     )
     
     db.session.add(demo)
@@ -89,13 +45,7 @@ def seed_users():
             username=fake.user_name(),
             email=fake.email(),
             password='password',
-            first_name=userInfo[i]['first_name'],
-            last_name=userInfo[i]['last_name'],
-            occupation=jobs[randint(0, len(jobs) - 1)],
-            phone_number=fake.phone_number(),
-            work_email=fake.company_email(),
-            profile_picture=profile_pictures[i],
-            age=randint(18, 50)
+            profile_picture=profile_pictures[i]
         )
         
         db.session.add(newUser)

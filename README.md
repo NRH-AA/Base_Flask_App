@@ -21,6 +21,8 @@ Front end react set up with a few routes for users.
 Front end is set up to use themes. Create them in react-app/src/index.css
 If you need help understanding how to use it look up how to use data-theme in css.
 
+Project is set up to use SASS.
+
 # To download required libraries:
 In the project root folder use: `pipenv install`
 

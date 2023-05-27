@@ -31,3 +31,10 @@ In the react-app folder use: `npm i`
 To start the back end: In the root folder use: `pipenv run flask run`
 
 To start the front end: In react-app folder use: `npm start`
+
+# Contribute
+This project was created to be a base for anyone to use to create a flask application.
+
+If you would like to contribute to update the code base or add something you think should be included please create a fork of the dev branch and create a pull request.
+
+You may also create an issue with code fixes if you do not want to create a pull request.

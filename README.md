@@ -1,4 +1,5 @@
 # Flask React Project
+Project uses React 18 and Redux Toolkit
 Project includes CORS, CSRF, and Hashed Passwords.
 
 User model is already created.

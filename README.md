@@ -41,6 +41,7 @@ You may also create an issue with code fixes if you do not want to create a pull
 
 # Dependencies
 `
+
     "@reduxjs/toolkit": "^1.9.5",
     
     "@testing-library/jest-dom": "^5.14.1",

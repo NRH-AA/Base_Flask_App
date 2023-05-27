@@ -14,6 +14,8 @@ You can see the route in app/api/user_routes.py: Route: POST /api/users/upload
 Database installed and ready for new models.
 
 Front end react set up with a few routes for users.
+*New* Redux Toolkit store set up.
+
 
 Front end is set up to use themes. Create them in react-app/src/index.css
 If you need help understanding how to use it look up how to use data-theme in css.

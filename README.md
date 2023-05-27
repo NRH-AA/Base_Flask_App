@@ -34,6 +34,8 @@ To start the back end: In the root folder use: `pipenv run flask run`
 
 To start the front end: In react-app folder use: `npm start`
 
+To compile scss files: In react-app folder use: `npm run gulp`
+
 # Contribute
 This project was created to be a base for anyone to use to create a flask application.
 

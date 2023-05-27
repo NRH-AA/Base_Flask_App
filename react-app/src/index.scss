@@ -1,0 +1,7 @@
+// Import our _variables partial scss file.
+@import 'variables';
+
+#normalCSS {
+    color: $testVar1;
+    background-color: $textVar2;
+};

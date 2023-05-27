@@ -38,3 +38,22 @@ This project was created to be a base for anyone to use to create a flask applic
 If you would like to contribute to update the code base or add something you think should be included please create a fork of the dev branch and create a pull request.
 
 You may also create an issue with code fixes if you do not want to create a pull request.
+
+# Dependencies
+`
+    "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "http-proxy-middleware": "^1.0.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-bottom-scroll-listener": "^5.1.0",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "redux": "^4.1.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "use-local-storage": "^2.3.6"
+`

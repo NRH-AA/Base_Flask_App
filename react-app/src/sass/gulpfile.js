@@ -8,7 +8,7 @@ const sass = require('gulp-sass')(require('sass'));
 const buildSass = () => {
     return src('*.scss')
         .pipe(sass())
-        .pipe(dest('css'));
+        .pipe(dest('../css'));
 };
 
 // This is used to watch all scss files so the compiler knows

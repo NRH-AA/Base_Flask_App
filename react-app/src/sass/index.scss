@@ -1,4 +1,13 @@
-/* TODO Add site wide styles */
+// Import our _variables partial scss file.
+@import 'variables';
+
+#normalCSS {
+    color: $testVar1;
+    background-color: $textVar2;
+};
+
+
+// Default Theme Styles
 :root {
     --body-background-color: rgb(212, 212, 212);
     
@@ -32,6 +41,7 @@
     --link-text-color: grey;
 }
 
+// Dark Theme Styles
 [data-theme='dark'] {
     --body-background-color: rgb(0, 0, 0);
     
@@ -68,13 +78,14 @@
     --link-text-color: rgb(0, 195, 255);
 }
 
-::-webkit-scrollbar {
-    background: rgb(70, 70, 70);
-    width: 12px;
-    border-radius: 100vh;
-}
 
-::-webkit-scrollbar-thumb {
-    background: rgb(170, 170, 170);
-    border-radius: 100vh;
-}
+// ::-webkit-scrollbar {
+//     background: rgb(70, 70, 70);
+//     width: 12px;
+//     border-radius: 100vh;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//     background: rgb(170, 170, 170);
+//     border-radius: 100vh;
+// }

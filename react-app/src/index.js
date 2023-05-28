@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider, Modal } from './context/Modal';
 import store from './store';
 import App from './App';
-import './index.css';
+import './css';
 
 // React 18 Update
 const domNode = document.getElementById('root');

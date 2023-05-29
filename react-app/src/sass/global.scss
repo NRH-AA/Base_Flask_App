@@ -1,0 +1,22 @@
+// Import our _variables partial scss file.
+@import 'variables';
+@import 'util';
+
+
+body {
+    background-color: theme-var($--theme-background);
+};
+
+
+
+
+// ::-webkit-scrollbar {
+//     background: rgb(70, 70, 70);
+//     width: 12px;
+//     border-radius: 100vh;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//     background: rgb(170, 170, 170);
+//     border-radius: 100vh;
+// }

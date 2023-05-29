@@ -2,5 +2,20 @@
 // The _ tells the compiler to ignore this file.
 // This file is imported in the index.scss file so we don't need to compile it.
 // This is called a partial scss file.
-$testVar1: blue;
-$textVar2: red;
+
+
+// Variable Names
+$--theme-background: --theme-background;
+
+
+
+
+// Light Theme Styles
+$theme-map-light: (
+    $--theme-background: rgb(172, 172, 172)
+);
+
+// Dark Theme Styles
+$theme-map-dark: (
+    $--theme-background: black
+);

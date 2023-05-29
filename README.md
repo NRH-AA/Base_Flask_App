@@ -12,7 +12,7 @@
 
 <br><br>
 
-# To download required libraries:
+# How to run the project locally:
 In the project root folder use: `pipenv install`
 
 Create database with: `pipenv run flask db init && pipenv run flask db migrate && pipenv run flask db upgrade && pipenv run flask seed all`

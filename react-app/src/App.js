@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Redirect, Route, Switch} from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import HomeComponent from "./components/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,8 +16,6 @@ function App() {
   }, [dispatch]);
   
   
-  
-
   return (
     <>
       <Navigation isLoaded={isLoaded} />
@@ -31,8 +30,8 @@ function App() {
             <LoginFormPage />
           </Route>
           
-          <Route path="/">
-            <Redirect to="/" />
+          <Route exact path="/">
+            <HomeComponent />
           </Route>
           
         </Switch>

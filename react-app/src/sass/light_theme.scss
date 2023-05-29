@@ -1,0 +1,6 @@
+@import 'variables';
+@import 'util';
+
+:root {
+    @include spread-map($theme-map-light);
+}

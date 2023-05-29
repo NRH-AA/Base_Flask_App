@@ -1,0 +1,6 @@
+@import 'variables';
+@import 'util';
+
+:root[data-theme="'dark'"] {
+    @include spread-map($theme-map-dark);
+}

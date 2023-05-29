@@ -3,7 +3,7 @@
 <ul>
     <li style='font-size: 18px'>React 18</li>
     <li style='font-size: 18px'>Redux Toolkit</li>
-    <li style='font-size: 18px'>SASS</li>
+    <li style='font-size: 18px'>SASS - Multi Theme Support</li>
     <li style='font-size: 18px'>CSRF, CORS, Hashed Passwords</li>
     <li style='font-size: 18px'>AWS S3</li>
     <li style='font-size: 18px'>SQLite/ProstgreSQL Database</li>
